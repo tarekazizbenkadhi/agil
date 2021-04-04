@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { KeycloackSecurityService } from '../../services/keycloack-security.service';
 
 declare interface RouteInfo {
   path: string;
@@ -21,11 +22,16 @@ export const ROUTES: RouteInfo[] = [
 export class SidebarComponent implements OnInit {
   menuItems: any[];
 
-  constructor() { }
+  constructor(public securityService:KeycloackSecurityService) { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
   }
+  isAgentCommercial(){
+    return this.securityService.kc.hasRealmRole('agentCommercial');
+    
+  }
+  
   isMobileMenu() {
     if (window.innerWidth > 991) {
       return false;

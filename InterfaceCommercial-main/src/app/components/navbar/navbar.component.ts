@@ -40,7 +40,15 @@ export class NavbarComponent implements OnInit {
     onLogout(){
 this.securityService.kc.logout();
     }
-
+    onLogin(){
+      this.securityService.kc.login();
+    }
+    onChangePassword(){
+      this.securityService.kc.accountManagement();
+    }
+    onCreateAccount(){
+      this.securityService.kc.register();
+    }
     collapse(){
       this.isCollapsed = !this.isCollapsed;
       const navbar = document.getElementsByTagName('nav')[0];

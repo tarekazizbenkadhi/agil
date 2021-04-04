@@ -44,8 +44,10 @@
                 <a class="dropdown-item" href="https://outlook.live.com/mail/0/?RpsCsrfState=0182ab73-ab41-ffa0-f0fb-13e17617ab5f&JitExp=1&url=%2fowa%2f0%2f%3fRpsCsrfState%253d0182ab73-ab41-ffa0-f0fb-13e17617ab5f">OutLook</a>
               </div>
             </li>
-            <li class="nav-item" ngbDropdown>
+            <li class="nav-item" ngbDropdown *ngIf="securityService.kc.authenticated">
               <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle>
+                <i class="now-ui-icons users_single-02 "></i>
+
                 <span *ngIf="securityService.kc.authenticated">
                   {{securityService.kc.tokenParsed.name}}
                 </span>
@@ -55,17 +57,26 @@
                   <i class="now-ui-icons sport_user-run"></i>
                   Logout
                 </a>
+                <a class="dropdown-item" (click)="onChangePassword()">
+                  <i class="now-ui-icons objects_key-25"></i>
+                  Change Password
+                </a>
               </div>
 
             </li>
-            <!--<li class="nav-item">
-              <a class="nav-link" href="#pablo">
-                <i class="now-ui-icons sport_user-run"></i>
-                <p>
-                  <span class="d-lg-none d-md-block">Account</span>
-                </p>
-              </a>
-            </li>-->
+            <li class="nav-item" *ngIf="!securityService.kc.authenticated">
+              <a class="nav-link" (click)="onLogin()">
+                <i class="now-ui-icons users_single-02 "></i>
+                Login
+                </a>
+            </li>
+            <li class="nav-item" *ngIf="!securityService.kc.authenticated">
+              <a class="nav-link" (click)="onCreateAccount()">
+                <i class="now-ui-icons users_single-02 "></i>
+                Create Account
+                </a>
+            </li>
+            
           </ul>
         </div>
     </div>
