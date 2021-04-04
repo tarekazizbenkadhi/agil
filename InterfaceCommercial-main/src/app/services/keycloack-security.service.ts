@@ -20,7 +20,7 @@ public kc:KeycloakInstance;
 
     });
     await this.kc.init({
-     // onLoad:"login-required"
+     // onLoad:"login-required",
      
      onLoad:"check-sso",
     // promiseType:"native",

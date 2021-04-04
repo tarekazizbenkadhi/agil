@@ -37,6 +37,9 @@ export class NavbarComponent implements OnInit {
          }
      });
     }
+    onLogout(){
+this.securityService.kc.logout();
+    }
 
     collapse(){
       this.isCollapsed = !this.isCollapsed;
