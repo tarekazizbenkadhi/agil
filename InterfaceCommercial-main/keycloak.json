@@ -1,0 +1,7 @@
+
+[{
+    "url":"http://localhost:8080/auth/",
+    "realm":"agil",
+    "clientId":"interfaceCommercial",
+    "public-client": true
+  }]

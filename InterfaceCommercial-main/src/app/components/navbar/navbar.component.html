@@ -1,0 +1,66 @@
+
+<nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute bg-primary fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-wrapper">
+            <div class="navbar-toggle">
+                <button type="button" class="navbar-toggler" (click)="sidebarToggle()">
+                    <span class="navbar-toggler-bar bar1"></span>
+                    <span class="navbar-toggler-bar bar2"></span>
+                    <span class="navbar-toggler-bar bar3"></span>
+                </button>
+            </div>            
+        </div>
+        
+        <div class="collapse navbar-collapse justify-content-end" id="collapseExample" [ngbCollapse]="isCollapsed">
+          <form>
+            <div class="input-group no-border">
+              <input type="text" value="" class="form-control" placeholder="Search...">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <i class="now-ui-icons ui-1_zoom-bold"></i>
+                </div>
+              </div>
+            </div>
+          </form>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#pablo">
+                <i class="now-ui-icons media-2_sound-wave"></i>
+                <p>
+                  <span class="d-lg-none d-md-block">Stats</span>
+                </p>
+              </a>
+            </li>
+            <li class="nav-item" ngbDropdown>
+              <a class="nav-link" id="dropdownBasic1" ngbDropdownToggle>
+                <i class="now-ui-icons ui-1_email-85"></i>
+                <p>
+                  <span class="d-lg-none d-md-block">Mailing</span>
+                </p>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <a class="dropdown-item" href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox">Gmail</a>
+                <a class="dropdown-item" href="https://mail.yahoo.com/d/folders/1?.intl=fr&.lang=fr-FR">Yahoo</a>
+                <a class="dropdown-item" href="https://outlook.live.com/mail/0/?RpsCsrfState=0182ab73-ab41-ffa0-f0fb-13e17617ab5f&JitExp=1&url=%2fowa%2f0%2f%3fRpsCsrfState%253d0182ab73-ab41-ffa0-f0fb-13e17617ab5f">OutLook</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                <span *ngIf="securityService.kc.authenticated">
+                  {{securityService.kc.tokenParsed.name}}
+                </span>
+              </a>
+
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#pablo">
+                <i class="now-ui-icons sport_user-run"></i>
+                <p>
+                  <span class="d-lg-none d-md-block">Account</span>
+                </p>
+              </a>
+            </li>
+          </ul>
+        </div>
+    </div>
+</nav>
